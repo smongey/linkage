@@ -1,0 +1,12 @@
+<div class="login">
+
+  <form class="link" ng-submit="login()">
+
+    <input class="title" type="email" ng-model="user.email" placeholder="Email">
+    <input class="link" type="password" ng-model="user.password" placeholder="Password"><br>
+    <input type="submit" value="Log in" />
+	<br/><br/>
+    <p ng-show="error" class="danger">{{ error }}</p>  
+  </form>
+
+</div>

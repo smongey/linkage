@@ -1,0 +1,222 @@
+// bower:scss
+// endbower
+
+@import "compass/css3";
+
+// UTILITY
+* { -webkit-font-smoothing: antialiased; @include box-sizing(border-box); }
+body {
+    background:black;
+    color:#fff;
+}
+.hidden { display: none; }
+a { 
+    color:lighten(red, 15%);
+    text-decoration: none; 
+    @include transition(all ease .2s);
+    &:hover { color: lighten(black, 15%); }
+}
+
+a.delete { 
+    display: block; 
+    text-indent: -9999px; 
+    width:10px; 
+    height: 10px;
+    float: right;
+    position: relative;
+    vertical-align: middle;
+    cursor: pointer;
+    @include transition(all ease .2s);
+
+    &::before, &::after { 
+        content: '';
+        display: block;
+        position: absolute;
+        width: 15px;
+        height: 2px;
+        top:5px;
+        background:lighten(black, 20%);
+        @include transform(rotate(45deg));
+        @include transition(all ease .2s);
+    }
+    &::after {
+        @include transform(rotate(-45deg));
+    }
+    &:hover {
+        &::before, &::after {
+            background:lighten(red, 20%);
+        }
+    }
+}
+
+
+
+// STRUCTURE
+.home {
+    position: fixed;
+    display:block;
+    width:60px; 
+    height:60px; 
+    top:0px;
+    left:0px;
+    margin:10px 20px;
+    background:white; 
+    z-index: 9999;
+    text-indent: -9999px;
+    @include border-radius(30px);
+    cursor: pointer;
+}
+
+form.link {
+    width:100%; 
+    position: fixed;
+    top:0;
+    margin:0;
+    padding:0;
+    padding-left: 95px;
+    input {
+        width: 50%;
+        border:none; 
+        outline:none;
+        padding:25px;
+        margin:0;
+        float:left;
+        font:1.5em/1em 'Times', serif;
+        color:black;
+        @include box-shadow(rgba(0,0,0,.6) 0px 0px 20px);
+        @include transition(all ease .2s);
+        &.title, &.email, &.username, &.password {
+            background:lighten(black, 20%);
+        }
+        &.link {
+            background:lighten(black, 20%);
+        }
+        &:focus {
+            background: lighten(black, 10%);
+            color:lighten(red, 15%);
+        }
+        &.email, &.username, &.password {
+            width: 100%;
+        }
+        &.sumbit {
+            width: 50%;
+        }
+    }
+}
+::-webkit-input-placeholder {
+   color: black;
+   line-height: 1.2em;
+}
+
+#posts {
+    padding:100px 0 0 105px;
+}
+
+.single { padding: 20px 20px 20px 0; font-size: 1.2em; 
+
+    span {
+        font:.65em sans-serif;
+        letter-spacing: 1px;
+        color:lighten(black, 40%);
+        padding:10px;
+    }
+    .credit {
+        font:.65em sans-serif;
+        letter-spacing: 1px;
+        color:lighten(black, 40%);
+        opacity: 0;
+        margin-left:-5px;
+    }
+    .comment {
+        font:.65em sans-serif;
+        letter-spacing: 1px;
+        color:lighten(black, 40%);
+        opacity: 0;
+        padding-left: 3px;
+           
+    }
+    &:hover {
+        .credit {
+            opacity: 1;
+            margin-left: 0px;
+        }
+        .comment {
+            opacity: 1;
+            padding-left: 10px;
+        }
+    }
+    &.page {
+        .credit {
+            margin-left: 0;
+            opacity: 1;
+        }
+        .comment {
+            padding-left: 0;
+            opacity: 1;
+        }
+    }
+}
+
+.register, .post { 
+    padding:100px 0 0 105px;
+}
+
+
+// PROFILE MODULE
+
+.profilebox { 
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    padding: 20px;
+    background: white;
+    font:.65em sans-serif;
+    letter-spacing: 1px;
+    color:lighten(red, 15%);
+    z-index: 9999;
+    text-align: center;
+    margin-bottom: -60px;
+    @include transition(all ease .2s);
+    img {
+        max-width: 60px;
+        max-height: 60px;
+        margin-bottom: 15px;
+        @include border-radius(30px);
+    }
+    .logout {
+        padding:5px 0px;
+        color:lighten(black, 40%);
+    }
+    &:hover {
+        margin-bottom: 0;
+    }
+}
+
+
+// PROFILE PAGE
+.submissions {
+    .comments {
+        padding:20px 0 0 105px;
+        color:#fff;
+    }
+}
+
+.profile {
+    .user {
+        position: fixed;
+    }
+}
+
+
+// LOGIN / REGISTER PAGES
+.login, .register {
+    position: fixed;
+    margin: 0;
+    padding:0 0 0 105px;
+    width: 100%;
+    top: 0;
+    form.link {
+        position: relative;
+        padding-left: 0;
+    }
+}

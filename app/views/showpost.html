@@ -1,0 +1,30 @@
+
+<section id="posts">
+
+	<div class="single page">
+
+		<a href="{{post.url}}" target="_blank">{{post.title}} 
+		<span>{{post.url | hostnameFromUrl }}</span></a><br/>
+		<a href="#/users/{{ post.owner }}" class="credit">by {{ post.owner }}</a>
+		<a class="delete" ng-click="deletePost(postId)" ng-show="signedIn() && post.owner === currentUser.username">delete</a>
+
+		<div class="comments">
+			<div class="comment" ng-repeat="(commentId, comment) in post.comments">
+				<p>{{ comment.text }}</p>
+				<p class="author">by 
+					<a href="#/users/{{ comment.username }}">{{ comment.username }}</a>
+					<a href="" ng-show="signedIn() && comment.username === currentUser.username" ng-click="removeComment(comment, commentId)">(delete)</a></p>
+
+			</div>
+		</div>
+
+		<div class="commentform" ng-show="signedIn()">
+			<form>
+				<textarea ng-model="comment.text" placeholder="Comment" class="commenttext"></textarea><br/>
+				<input type="submit" ng-click="addComment()" value="Post Comment" class="commentsubmit">
+			</form>
+		</div>
+
+	</div>
+
+</section>
