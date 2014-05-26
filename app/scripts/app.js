@@ -1,5 +1,5 @@
 'use strict';
-/* global app:true */
+/* global app:true */ 
 
 var app = angular.module('linkageApp', [
   'ngCookies',
